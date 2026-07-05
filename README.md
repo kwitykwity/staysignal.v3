@@ -4,7 +4,7 @@ Hotel booking quality scorer — know before they cancel.
 
 Enter four booking details and get an instant **Booking Quality Score** (0–100), plain-English risk drivers, and a recommended action. Powered by a machine learning model trained on 119,390 real hotel booking records.
 
-**Live demo:** [staysignal.vercel.app](https://staysignal.vercel.app)
+**Live demo:** [staysignal-v3.vercel.app](https://staysignal-v3.vercel.app)
 
 This repository is a **monorepo** containing both halves of StaySignal:
 
@@ -44,11 +44,25 @@ Hotels lose revenue when bookings cancel at the last minute — leaving rooms em
 
 ---
 
+## Qatar Market tab
+
+Alongside the single-booking scorer, StaySignal includes a **Qatar Market Context** view — a market-level dashboard showing:
+
+- Occupancy rate, ADR, and RevPAR trends from 2014–2025 across 7 hospitality segments (Qatar+ aggregate, 5/4/3/1&2-star hotels, deluxe and standard apartments)
+- COVID-19 and FIFA World Cup 2022 shown as shaded reference bands on the trend chart — these are manually annotated known market events, not derived from the dataset
+- A trailing 12-month average for the headline stat cards (rather than a single latest month), to avoid misleading spikes from seasonal effects like Ramadan
+- A segment comparison bar chart showing occupancy rate by property tier for the latest reporting month
+
+Data source: Qatar accommodation data by segment, date, and key metrics (Data.gov.qa) — monthly supply, demand, occupancy, ADR, and RevPAR, 2014–2025. Bundled locally as `frontend/src/data/qatarMarketData.json`.
+
+---
+
 ## Tech stack
 
 **Frontend** (`/frontend`)
 - React + Vite + Tailwind CSS
 - Axios for API calls
+- Recharts for the Qatar Market charts
 - Deployed on Vercel
 
 **API** (`/api`)
